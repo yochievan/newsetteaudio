@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sette Audio | High-End Audio · Chinese Precision · Black & White Minimalism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #151515;
+            --bg-card-hover: #1c1c1c;
+            --accent: #ffffff;
+            --accent-light: #e0e0e0;
+            --accent-dark: #888888;
+            --accent-glow: rgba(255, 255, 255, 0.12);
+            --text-primary: #f2f2f2;
+            --text-secondary: #b0b0b0;
+            --text-muted: #6e6e6e;
+            --border-subtle: #2a2a2a;
+            --border-accent: rgba(255, 255, 255, 0.25);
+            --shadow-accent: 0 0 50px rgba(255, 255, 255, 0.06);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-heading: 'Quicksand', 'Nunito', sans-serif;
+            --font-body: 'DM Sans', 'Inter', sans-serif;
+            --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #2a2a2a #0a0a0a;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a3a;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s var(--transition-smooth);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.8rem 4rem;
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .nav-brand .brand-icon {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .nav-brand .brand-icon::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: all 0.4s var(--transition-bounce);
+        }
+
+        .nav-brand:hover .brand-icon {
+            border-color: var(--accent-light);
+            box-shadow: var(--shadow-accent);
+        }
+        .nav-brand:hover .brand-icon::after {
+            background: var(--accent-light);
+            transform: scale(1.2);
+        }
+
+        .nav-brand .brand-text {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+        .nav-brand:hover .brand-text {
+            color: var(--accent-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: color 0.3s;
+            font-family: var(--font-heading);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.4s var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-shop-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            padding: 0.55rem 1.6rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .nav-shop-link:hover {
+            background: var(--accent);
+            color: #0a0a0a;
+            box-shadow: 0 0 35px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .nav-shop-link .cart-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.35s var(--transition-smooth);
+            border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 4rem 4rem;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 40%, #1c1c1c 0%, #0a0a0a 60%);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255, 255, 255, 0.5) 1px, rgba(255, 255, 255, 0.5) 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255, 255, 255, 0.5) 1px, rgba(255, 255, 255, 0.5) 2px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: heroGlowPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes heroGlowPulse {
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.2s both;
+            font-family: var(--font-heading);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.4s both;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.6s both;
+            line-height: 1.7;
+            font-family: var(--font-body);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.8s both;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0a0a0a;
+            border: none;
+            padding: 0.85rem 2.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            box-shadow: 0 8px 35px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--text-muted);
+            padding: 0.85rem 2.4rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-3px);
+        }
+
+        .btn-shop {
+            background: transparent;
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
+            padding: 0.85rem 2.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-shop:hover {
+            background: var(--accent);
+            color: #0a0a0a;
+            box-shadow: 0 8px 35px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== PRODUCTS SECTION ==================== */
+        .products-section {
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto;
+            opacity: 0.6;
+            border-radius: 2px;
+        }
+
+        .sub-series-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sub-series-link {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .sub-series-link:hover {
+            color: var(--accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.5s var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), var(--shadow-accent);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #0d0d0d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-visual {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .product-card:hover .product-visual {
+            transform: scale(1.05);
+        }
+
+        .speaker-svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.85;
+            transition: all 0.5s var(--transition-smooth);
+        }
+        .product-card:hover .speaker-svg {
+            opacity: 1;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: #0a0a0a;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            z-index: 5;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+        }
+        .product-card:hover .product-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 1.8rem 1.5rem;
+        }
+
+        .product-category {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+
+        .product-name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        .product-card:hover .product-name {
+            color: #ffffff;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+            font-family: var(--font-body);
+        }
+
+        .product-price {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            letter-spacing: 0.02em;
+        }
+
+        .product-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .product-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: all 0.3s;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: var(--font-heading);
+        }
+        .product-card:hover .product-arrow {
+            color: var(--accent);
+        }
+        .product-arrow .arrow-icon {
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-arrow .arrow-icon {
+            transform: translateX(6px);
+        }
+
+        .product-buy-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.45rem 1.2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .product-buy-link:hover {
+            background: var(--accent);
+            color: #0a0a0a;
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .view-all-wrapper {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            padding: 0.9rem 2.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+        }
+
+        .view-all-btn:hover {
+            background: var(--accent);
+            color: #0a0a0a;
+            box-shadow: 0 8px 35px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== FEATURES STRIP ==================== */
+        .features-strip {
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 3rem 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+        }
+
+        .feature-item {
+            text-align: center;
+            max-width: 200px;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .feature-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        /* ==================== BOTTOM SHOP BANNER ==================== */
+        .shop-banner-bottom {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 2.5rem 4rem;
+            text-align: center;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .shop-banner-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .shop-banner-text {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            letter-spacing: 0.03em;
+            line-height: 1.5;
+        }
+
+        .shop-banner-text strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .shop-banner-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent);
+            color: #0a0a0a;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s var(--transition-smooth);
+            font-family: var(--font-heading);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .shop-banner-link:hover {
+            background: var(--accent-light);
+            box-shadow: 0 8px 35px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 4rem 4rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 280px;
+            font-family: var(--font-body);
+        }
+
+        .footer-shop-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+            font-family: var(--font-heading);
+        }
+
+        .footer-shop-link:hover {
+            border-bottom-color: var(--accent);
+            color: var(--accent-light);
+        }
+
+        .footer-col h4 {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.7rem;
+        }
+        .footer-col ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+        .footer-col ul li a:hover {
+            color: var(--accent-light);
+        }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .navbar { padding: 1rem 2rem; }
+            .navbar.scrolled { padding: 0.7rem 2rem; }
+            .nav-links { gap: 1.2rem; }
+            .products-section { padding: 4rem 2rem; }
+            .products-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+            .features-strip { gap: 3rem; padding: 2.5rem 2rem; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .hero { padding: 6rem 2rem 4rem; }
+            .shop-banner-bottom { padding: 2rem 2rem; }
+            .shop-banner-inner { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(10,10,10,0.97);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.5s var(--transition-smooth);
+                z-index: 1000;
+                border-left: 1px solid var(--border-subtle);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1rem; letter-spacing: 0.06em; }
+            .nav-shop-link { display: none; }
+            .nav-shop-link-mobile {
+                display: inline-flex !important;
+                align-items: center;
+                gap: 0.5rem;
+                background: transparent;
+                border: 1.5px solid var(--accent);
+                color: var(--accent);
+                padding: 0.7rem 2rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                cursor: pointer;
+                border-radius: 50px;
+                transition: all 0.4s;
+                font-family: var(--font-heading);
+                text-decoration: none;
+                margin-top: 1rem;
+            }
+            .nav-shop-link-mobile:hover { background: var(--accent); color: #0a0a0a; }
+            .hamburger { display: flex; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 0.9rem; }
+            .products-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+            .features-strip { flex-direction: column; align-items: center; gap: 2rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .product-visual { transform: none !important; }
+            .product-actions { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar { padding: 0.8rem 1.2rem; }
+            .navbar.scrolled { padding: 0.6rem 1.2rem; }
+            .hero { padding: 5rem 1.2rem 3rem; }
+            .hero-title { font-size: 1.9rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline, .btn-shop { width: 100%; text-align: center; padding: 0.8rem 1.5rem; justify-content: center; }
+            .products-section { padding: 3rem 1rem; }
+            .product-info { padding: 1.4rem 1.2rem; }
+            .features-strip { padding: 2rem 1rem; }
+            .footer { padding: 3rem 1.5rem 1.5rem; }
+            .shop-banner-bottom { padding: 1.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand">
+            <div class="brand-icon"></div>
+            <span class="brand-text">Sette Audio</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">Brand Story</a></li>
+            <li><a href="#craft">Craftsmanship</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+                <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="nav-shop-link-mobile"
+                   style="display: none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Online Store
+                </a>
+            </li>
+        </ul>
+        <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="nav-shop-link">
+            <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Online Store
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Est. 2024 · Chinese Precision</p>
+            <h1 class="hero-title">
+                Listen to the <em>Essence</em> of Sound<br>Be Immersed
+            </h1>
+            <p class="hero-subtitle">
+                Sette Audio interprets the pure beauty of high-end acoustics through a minimalist black-and-white philosophy. Every note, in its true color.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Explore Products</a>
+                <a href="#about" class="btn-outline">Brand Story</a>
+                <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="btn-shop">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Shop Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <p class="section-eyebrow">Our Collection</p>
+            <h2 class="section-title">Flagship Series</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- AMT Tweeter Series -->
+        <div class="sub-series-title">
+            AMT Tweeter Series
+            <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="sub-series-link">
+                View All <span class="arrow-icon">→</span>
+            </a>
+        </div>
+        <div class="products-grid">
+            <!-- AMT Product 1 -->
+            <div class="product-card">
+                <div class="product-image-wrapper" onclick="alert('Sette Aurora X — AMT Super Tweeter\n\nHeil Air Motion Transformer · Folded Diaphragm\nHigh-Frequency Extension: Up to 50kHz\nTransient Response: Ultra-Fast · Precise\nMSRP: ¥ 198,000\n\nChinese precision engineering, recreating extreme high-frequency details with AMT technology.\n\nClick the button below to visit our AliExpress store.')">
+                    <div class="product-visual">
+                        <svg class="speaker-svg" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="pg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2a2a2a"/><stop offset="100%" stop-color="#0d0d0d"/></linearGradient>
+                                <linearGradient id="pg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#888888"/></linearGradient>
+                            </defs>
+                            <rect x="35" y="20" width="130" height="210" rx="12" fill="url(#pg1)" stroke="#333" stroke-width="1.5"/>
+                            <rect x="55" y="40" width="90" height="100" rx="6" fill="#0a0a0a" stroke="url(#pg2)" stroke-width="2"/>
+                            <line x1="60" y1="55" x2="140" y2="55" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="65" x2="140" y2="65" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="75" x2="140" y2="75" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="85" x2="140" y2="85" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="95" x2="140" y2="95" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="105" x2="140" y2="105" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="115" x2="140" y2="115" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <line x1="60" y1="125" x2="140" y2="125" stroke="#555" stroke-width="0.5" opacity="0.6" stroke-linecap="round"/>
+                            <circle cx="100" cy="180" r="35" fill="#0a0a0a" stroke="url(#pg2)" stroke-width="2.5"/>
+                            <circle cx="100" cy="180" r="15" fill="url(#pg2)" opacity="0.35"/>
+                            <rect x="25" y="232" width="150" height="8" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <span class="product-badge">Flagship</span>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">AMT Super Tweeter</p>
+                    <h3 class="product-name">Aurora X</h3>
+                    <p class="product-desc">Heil Air Motion Transformer with folded diaphragm design, extending high frequencies up to 50kHz with lightning-fast transients.</p>
+                    <p class="product-price">¥ 198,000</p>
+                    <div class="product-actions">
+                        <span class="product-arrow" onclick="alert('Sette Aurora X — AMT Super Tweeter\n\nHeil Air Motion Transformer · Folded Diaphragm\nHigh-Frequency Extension: Up to 50kHz\nTransient Response: Ultra-Fast · Precise\nMSRP: ¥ 198,000\n\nChinese precision engineering, recreating extreme high-frequency details with AMT technology.')">Details <span class="arrow-icon">→</span></span>
+                        <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="product-buy-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            Buy
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AMT Product 2 -->
+            <div class="product-card">
+                <div class="product-image-wrapper" onclick="alert('Sette Vento S — AMT Speaker System\n\nFull-Range AMT Unit · AMT Mid-High + Active Bass\nFrequency Response: 28Hz – 45kHz\nBuilt-in DSP Room Correction\nMSRP: ¥ 268,000\n\nFlagship AMT speaker system, extending AMT technology to full-range performance.\n\nClick the button below to visit our AliExpress store.')">
+                    <div class="product-visual">
+                        <svg class="speaker-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="pg5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e1e1e"/><stop offset="100%" stop-color="#111111"/></linearGradient>
+                                <linearGradient id="pg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cccccc"/><stop offset="100%" stop-color="#555555"/></linearGradient>
+                            </defs>
+                            <rect x="25" y="30" width="150" height="140" rx="20" fill="url(#pg5)" stroke="#3a3a3a" stroke-width="1.5"/>
+                            <rect x="45" y="45" width="110" height="70" rx="8" fill="#0a0a0a" stroke="url(#pg6)" stroke-width="2"/>
+                            <line x1="50" y1="55" x2="150" y2="55" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <line x1="50" y1="65" x2="150" y2="65" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <line x1="50" y1="75" x2="150" y2="75" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <line x1="50" y1="85" x2="150" y2="85" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <line x1="50" y1="95" x2="150" y2="95" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <line x1="50" y1="105" x2="150" y2="105" stroke="#555" stroke-width="0.5" opacity="0.5" stroke-linecap="round"/>
+                            <circle cx="100" cy="150" r="18" fill="#0a0a0a" stroke="url(#pg6)" stroke-width="2"/>
+                            <circle cx="100" cy="150" r="8" fill="url(#pg6)" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">AMT Speaker System</p>
+                    <h3 class="product-name">Vento S</h3>
+                    <p class="product-desc">Full-range AMT unit system with active bass and DSP room correction, redefining the listening experience.</p>
+                    <p class="product-price">¥ 268,000</p>
+                    <div class="product-actions">
+                        <span class="product-arrow" onclick="alert('Sette Vento S — AMT Speaker System\n\nFull-Range AMT Unit · AMT Mid-High + Active Bass\nFrequency Response: 28Hz – 45kHz\nBuilt-in DSP Room Correction\nMSRP: ¥ 268,000\n\nFlagship AMT speaker system, extending AMT technology to full-range performance.')">Details <span class="arrow-icon">→</span></span>
+                        <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="product-buy-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            Buy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ribbon Tweeter Series -->
+        <div class="sub-series-title">
+            Ribbon Tweeter Series
+            <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="sub-series-link">
+                View All <span class="arrow-icon">→</span>
+            </a>
+        </div>
+        <div class="products-grid">
+            <!-- Ribbon Product 1 -->
+            <div class="product-card">
+                <div class="product-image-wrapper" onclick="alert('Sette Lumen R — Ribbon Tweeter\n\nUltra-Thin Ribbon Diaphragm · Neodymium Magnet Array\nHigh-Frequency Extension: Up to 40kHz\nDistortion: < 0.1%\nMSRP: ¥ 158,000\n\nAchieving near-zero mass high-frequency reproduction with ultra-light ribbon diaphragm.\n\nClick the button below to visit our AliExpress store.')">
+                    <div class="product-visual">
+                        <svg class="speaker-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="pg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1c1c1c"/><stop offset="100%" stop-color="#0f0f0f"/></linearGradient>
+                                <linearGradient id="pg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0e0e0"/><stop offset="100%" stop-color="#666666"/></linearGradient>
+                            </defs>
+                            <rect x="30" y="25" width="140" height="170" rx="14" fill="url(#pg3)" stroke="#3a3a3a" stroke-width="1.5"/>
+                            <rect x="92" y="50" width="16" height="70" rx="6" fill="#0a0a0a" stroke="url(#pg4)" stroke-width="2.5"/>
+                            <rect x="96" y="55" width="8" height="60" rx="4" fill="url(#pg4)" opacity="0.5"/>
+                            <circle cx="100" cy="145" r="32" fill="#0a0a0a" stroke="url(#pg4)" stroke-width="2.5"/>
+                            <circle cx="100" cy="145" r="14" fill="url(#pg4)" opacity="0.4"/>
+                            <rect x="24" y="197" width="152" height="6" rx="3" fill="#1a1a1a" stroke="#333" stroke-width="0.8"/>
+                        </svg>
+                    </div>
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Ribbon Tweeter</p>
+                    <h3 class="product-name">Lumen R</h3>
+                    <p class="product-desc">Ultra-thin ribbon diaphragm with neodymium magnet array, delivering silky smooth and transparent highs.</p>
+                    <p class="product-price">¥ 158,000</p>
+                    <div class="product-actions">
+                        <span class="product-arrow" onclick="alert('Sette Lumen R — Ribbon Tweeter\n\nUltra-Thin Ribbon Diaphragm · Neodymium Magnet Array\nHigh-Frequency Extension: Up to 40kHz\nDistortion: < 0.1%\nMSRP: ¥ 158,000\n\nAchieving near-zero mass high-frequency reproduction with ultra-light ribbon diaphragm.')">Details <span class="arrow-icon">→</span></span>
+                        <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="product-buy-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            Buy
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ribbon Product 2 -->
+            <div class="product-card">
+                <div class="product-image-wrapper" onclick="alert('Sette Aria R — Ribbon Super Tweeter\n\nDual Ribbon Array · Neodymium Drive\nHigh-Frequency Extension: Up to 45kHz\nTransient Response: Ultra-Fast · Precise\nMSRP: ¥ 128,000\n\nDual ribbon array design, balancing high-frequency energy with detail resolution.\n\nClick the button below to visit our AliExpress store.')">
+                    <div class="product-visual">
+                        <svg class="speaker-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="pg7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#0e0e0e"/></linearGradient>
+                                <linearGradient id="pg8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dddddd"/><stop offset="100%" stop-color="#777777"/></linearGradient>
+                            </defs>
+                            <rect x="30" y="25" width="140" height="170" rx="14" fill="url(#pg7)" stroke="#3a3a3a" stroke-width="1.5"/>
+                            <rect x="80" y="50" width="12" height="70" rx="4" fill="#0a0a0a" stroke="url(#pg8)" stroke-width="2"/>
+                            <rect x="108" y="50" width="12" height="70" rx="4" fill="#0a0a0a" stroke="url(#pg8)" stroke-width="2"/>
+                            <circle cx="100" cy="145" r="32" fill="#0a0a0a" stroke="url(#pg8)" stroke-width="2.5"/>
+                            <circle cx="100" cy="145" r="14" fill="url(#pg8)" opacity="0.4"/>
+                            <rect x="24" y="197" width="152" height="6" rx="3" fill="#1a1a1a" stroke="#333" stroke-width="0.8"/>
+                        </svg>
+                    </div>
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Ribbon Super Tweeter</p>
+                    <h3 class="product-name">Aria R</h3>
+                    <p class="product-desc">Dual ribbon array with neodymium drive, balancing high-frequency energy with exceptional detail resolution.</p>
+                    <p class="product-price">¥ 128,000</p>
+                    <div class="product-actions">
+                        <span class="product-arrow" onclick="alert('Sette Aria R — Ribbon Super Tweeter\n\nDual Ribbon Array · Neodymium Drive\nHigh-Frequency Extension: Up to 45kHz\nTransient Response: Ultra-Fast · Precise\nMSRP: ¥ 128,000\n\nDual ribbon array design, balancing high-frequency energy with detail resolution.')">Details <span class="arrow-icon">→</span></span>
+                        <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="product-buy-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            Buy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Products Button -->
+        <div class="view-all-wrapper">
+            <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="view-all-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                View All Products
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <div class="features-strip" id="craft">
+        <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <p class="feature-title">Chinese Precision</p>
+            <p class="feature-desc">Born from the ultimate pursuit of professionalism, every detail undergoes rigorous refinement and precision tuning.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <p class="feature-title">Italian Design</p>
+            <p class="feature-desc">Crafted by our Milan design team, perfectly blending acoustics with black-and-white aesthetics.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🔧</div>
+            <p class="feature-title">Hand-Tuned</p>
+            <p class="feature-desc">Each pair of speakers is hand-tuned by senior engineers to ensure pure and consistent sound.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🌿</div>
+            <p class="feature-title">Sustainability</p>
+            <p class="feature-desc">Selected FSC-certified wood and recycled aluminum, responsible for both sound and the earth.</p>
+        </div>
+    </div>
+
+    <!-- Bottom Shop Banner -->
+    <div class="shop-banner-bottom">
+        <div class="shop-banner-inner">
+            <p class="shop-banner-text">
+                Visit the <strong>Sette Audio Official AliExpress Store</strong> to explore our full product range with global shipping
+            </p>
+            <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="shop-banner-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Shop Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Sette Audio</p>
+                <p class="footer-tagline">Black & White Minimalism<br>The pure realm of high-end audio.</p>
+                <a href="https://www.aliexpress.com/store/1105427024?spm=a2g0o.detail.0.0.3c921upt1uptvV&sortType=bestmatch_sort" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="footer-shop-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Visit AliExpress Official Store →
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">AMT Super Tweeter</a></li>
+                    <li><a href="#">Ribbon Tweeter</a></li>
+                    <li><a href="#">AMT Speaker System</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Brand</h4>
+                <ul>
+                    <li><a href="#">Brand Story</a></li>
+                    <li><a href="#">Craftsmanship</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:gengyim@setteaudio.com">Email: gengyim@setteaudio.com</a></li>
+                    <li><a href="#">WeChat: 13929479139</a></li>
+                    <li><a href="tel:+8613929479139">Phone: +86 13929479139</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Sette Audio. All rights reserved. Black & White · Minimalism · Chinese Precision
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        const productCards = document.querySelectorAll('.product-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${idx * 0.12}s`;
+                }
+            });
+        }, { threshold: 0.15 });
+        productCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            observer.observe(card);
+        });
+        setTimeout(() => {
+            productCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s';
+                }
+            });
+        }, 200);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+                }
+            });
+        });
+        console.log('%c Sette Audio %c Black & White · Minimalism · Chinese Precision ',
+            'background:#ffffff;color:#0a0a0a;padding:6px 10px;font-size:14px;font-weight:bold;',
+            'background:#0a0a0a;color:#ffffff;padding:6px 10px;font-size:12px;');
+    </script>
+</body>
+</html>
