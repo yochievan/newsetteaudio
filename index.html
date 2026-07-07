@@ -491,6 +491,14 @@
             margin-bottom: 3rem;
         }
 
+        /* Ribbon系列使用更小的外框 */
+        .products-grid.ribbon-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .product-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -542,16 +550,32 @@
             opacity: 1;
         }
 
+        /* AMT系列图片样式 - 无内边距，填满容器 */
         .speaker-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: all 0.5s var(--transition-smooth);
+            border-radius: 4px;
+            padding: 0;
+        }
+        .product-card:hover .speaker-img {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        /* Ribbon系列图片样式 - 有内边距，缩小显示 */
+        .speaker-img-contained {
             width: 100%;
             height: 100%;
             object-fit: contain;
             opacity: 0.85;
             transition: all 0.5s var(--transition-smooth);
             border-radius: 4px;
-            padding: 8%;
+            padding: 12%;
         }
-        .product-card:hover .speaker-img {
+        .product-card:hover .speaker-img-contained {
             opacity: 1;
             transform: scale(1.02);
         }
@@ -566,7 +590,22 @@
             justify-content: center;
         }
 
-        .image-carousel img {
+        /* AMT系列轮播图片 - 无内边距 */
+        .image-carousel img.carousel-img-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            border-radius: 4px;
+            padding: 0;
+        }
+
+        /* Ribbon系列轮播图片 - 有内边距 */
+        .image-carousel img.carousel-img-contained {
             position: absolute;
             top: 0;
             left: 0;
@@ -576,7 +615,7 @@
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             border-radius: 4px;
-            padding: 8%;
+            padding: 12%;
         }
 
         .image-carousel img.active {
@@ -963,6 +1002,7 @@
             .nav-links { gap: 1.2rem; }
             .products-section { padding: 4rem 2rem; }
             .products-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+            .products-grid.ribbon-grid { max-width: 400px; }
             .features-strip { gap: 3rem; padding: 2.5rem 2rem; }
             .footer-inner { grid-template-columns: 1fr 1fr; }
             .hero { padding: 6rem 2rem 4rem; }
@@ -1016,6 +1056,7 @@
             .hero-title { font-size: 2.2rem; }
             .hero-subtitle { font-size: 0.9rem; }
             .products-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+            .products-grid.ribbon-grid { max-width: 350px; }
             .features-strip { flex-direction: column; align-items: center; gap: 2rem; }
             .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
             .product-visual { transform: none !important; }
@@ -1118,7 +1159,7 @@
             </a>
         </div>
         <div class="products-grid">
-            <!-- AMT Product 1 - Aurora X -->
+            <!-- AMT Product 1 - Aurora X (无内边距) -->
             <div class="product-card">
                 <div class="product-image-wrapper" onclick="alert('Sette Aurora X — AMT Super Tweeter\n\nHeil Air Motion Transformer · Folded Diaphragm\nHigh-Frequency Extension: Up to 50kHz\nTransient Response: Ultra-Fast · Precise\n\nChinese precision engineering, recreating extreme high-frequency details with AMT technology.\n\nClick the button below to visit our AliExpress store.')">
                     <div class="product-visual">
@@ -1143,13 +1184,13 @@
                 </div>
             </div>
 
-            <!-- AMT Product 2 - Vento S (图片轮播) -->
+            <!-- AMT Product 2 - Vento S (图片轮播，无内边距) -->
             <div class="product-card" id="ventoSCard">
                 <div class="product-image-wrapper" onclick="alert('Sette Vento S — AMT Speaker System\n\nFull-Range AMT Unit · AMT Mid-High + Active Bass\nFrequency Response: 28Hz – 45kHz\nBuilt-in DSP Room Correction\n\nFlagship AMT speaker system, extending AMT technology to full-range performance.\n\nClick the button below to visit our AliExpress store.')">
                     <div class="product-visual">
                         <div class="image-carousel" id="ventoCarousel">
-                            <img src="asset/sette%2004055/AMT040055.jpg" alt="Sette Vento S - AMT Speaker System View 1" class="active">
-                            <img src="asset/Sette%2004068/AMT0400406A.jpg" alt="Sette Vento S - AMT Speaker System View 2">
+                            <img src="asset/Sette%2004055/AMT040055.jpg" alt="Sette Vento S - AMT Speaker System View 1" class="carousel-img-cover active">
+                            <img src="asset/Sette%2004068/AMT0400406A.jpg" alt="Sette Vento S - AMT Speaker System View 2" class="carousel-img-cover">
                             <div class="carousel-dots">
                                 <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
                                 <button class="carousel-dot" data-index="1" aria-label="Image 2"></button>
@@ -1186,14 +1227,14 @@
                 View All <span class="arrow-icon">→</span>
             </a>
         </div>
-        <div class="products-grid">
-            <!-- Ribbon Product - Aria R (图片轮播，缩小图片) -->
+        <div class="products-grid ribbon-grid">
+            <!-- Ribbon Product - Aria R (图片轮播，缩小外框) -->
             <div class="product-card" id="ariaRCard">
                 <div class="product-image-wrapper" onclick="alert('Sette Aria R — Ribbon Super Tweeter\n\nDual Ribbon Array · Neodymium Drive\nHigh-Frequency Extension: Up to 45kHz\nTransient Response: Ultra-Fast · Precise\n\nDual ribbon array design, balancing high-frequency energy with detail resolution.\n\nClick the button below to visit our AliExpress store.')">
                     <div class="product-visual">
                         <div class="image-carousel" id="ariaCarousel">
-                            <img src="asset/Sette%20lotus%20speaker/1.jpg" alt="Sette Aria R - View 1" class="active">
-                            <img src="asset/Sette%20lotus%20speaker/2.jpg" alt="Sette Aria R - View 2">
+                            <img src="asset/Sette%20lotus%20speaker/1.jpg" alt="Sette Aria R - View 1" class="carousel-img-contained active">
+                            <img src="asset/Sette%20lotus%20speaker/2.jpg" alt="Sette Aria R - View 2" class="carousel-img-contained">
                             <div class="carousel-dots">
                                 <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
                                 <button class="carousel-dot" data-index="1" aria-label="Image 2"></button>
