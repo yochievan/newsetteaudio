@@ -545,10 +545,11 @@
         .speaker-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             opacity: 0.85;
             transition: all 0.5s var(--transition-smooth);
             border-radius: 4px;
+            padding: 8%;
         }
         .product-card:hover .speaker-img {
             opacity: 1;
@@ -571,10 +572,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             border-radius: 4px;
+            padding: 8%;
         }
 
         .image-carousel img.active {
@@ -1146,7 +1148,7 @@
                 <div class="product-image-wrapper" onclick="alert('Sette Vento S — AMT Speaker System\n\nFull-Range AMT Unit · AMT Mid-High + Active Bass\nFrequency Response: 28Hz – 45kHz\nBuilt-in DSP Room Correction\n\nFlagship AMT speaker system, extending AMT technology to full-range performance.\n\nClick the button below to visit our AliExpress store.')">
                     <div class="product-visual">
                         <div class="image-carousel" id="ventoCarousel">
-                            <img src="asset/sette%2004055/amt040055.jpg" alt="Sette Vento S - AMT Speaker System View 1" class="active">
+                            <img src="asset/sette%2004055/AMT040055.jpg" alt="Sette Vento S - AMT Speaker System View 1" class="active">
                             <img src="asset/Sette%2004068/AMT0400406A.jpg" alt="Sette Vento S - AMT Speaker System View 2">
                             <div class="carousel-dots">
                                 <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
@@ -1185,7 +1187,7 @@
             </a>
         </div>
         <div class="products-grid">
-            <!-- Ribbon Product - Aria R (图片轮播) -->
+            <!-- Ribbon Product - Aria R (图片轮播，缩小图片) -->
             <div class="product-card" id="ariaRCard">
                 <div class="product-image-wrapper" onclick="alert('Sette Aria R — Ribbon Super Tweeter\n\nDual Ribbon Array · Neodymium Drive\nHigh-Frequency Extension: Up to 45kHz\nTransient Response: Ultra-Fast · Precise\n\nDual ribbon array design, balancing high-frequency energy with detail resolution.\n\nClick the button below to visit our AliExpress store.')">
                     <div class="product-visual">
